@@ -48,12 +48,12 @@ void info()
 
     // Student eight
     Student[7].name = "ARAFAT, YEASIN";
-    Student[7].ID = "24-59288-3";
+    Student[7].ID = "24-59287-3";
     Student[7].Department = "CSE";
 
     // Student nine
     Student[8].name = "MEDHA, MAISHA FAHMIDA";
-    Student[8].ID = "24-59289-3";
+    Student[8].ID = "24-59288-3";
     Student[8].Department = "CSE";
 
     // Student ten
@@ -78,7 +78,7 @@ void info()
 
     // Student fourteen
     Student[13].name = "MAHMUD, AL";
-    Student[13].ID = "24-59293-3";
+    Student[13].ID = "24-59294-3";
     Student[13].Department = "CSE";
 
     // Student fifteen
@@ -93,17 +93,17 @@ void info()
 
     // Student seventeen
     Student[16].name = "NOWRIN, RAFAT ARA NOR";
-    Student[16].ID = "24-59310-3";
+    Student[16].ID = "24-59307-3";
     Student[16].Department = "CSE";
 
     // Student eighteen
     Student[17].name = "MEHAJABIN, MISS JANNATUL";
-    Student[17].ID = "24-59312-3";
+    Student[17].ID = "24-59310-3";
     Student[17].Department = "CSE";
 
     // Student nineteen
     Student[18].name = "SHAOWN, SUPRIYO BARUA";
-    Student[18].ID = "24-59313-3";
+    Student[18].ID = "24-59312-3";
     Student[18].Department = "CSE";
 
     // Student twenty
@@ -118,12 +118,12 @@ void info()
 
     // Student twenty-two
     Student[21].name = "AHAMED, MD.SABBIR";
-    Student[21].ID = "24-59316-3";
+    Student[21].ID = "24-59317-3";
     Student[21].Department = "CSE";
 
     // Student twenty-three
     Student[22].name = "CHOWA, FAWZIA FARIHA";
-    Student[22].ID = "24-59318-3";
+    Student[22].ID = "24-59319-3";
     Student[22].Department = "CSE";
 
     // Student twenty-four
@@ -159,11 +159,11 @@ void info()
     Student[30].Department = "CSE";
 
     Student[31].name = "SIAM, FARHAN ISTIAK";
-    Student[31].ID = "24-59332-3";
+    Student[31].ID = "24-59336-3";
     Student[31].Department = "CSE";
 
     Student[32].name = "MONDOL, MD.AKASH ALI";
-    Student[32].ID = "24-59333-3";
+    Student[32].ID = "24-59337-3";
     Student[32].Department = "CSE";
 
     Student[33].name = "SABBIR, MD SAJED FATEMI";
@@ -179,7 +179,7 @@ void info()
     Student[35].Department = "CSE";
 
     Student[36].name = "EMON, MD. JUNAID HOSSAIN";
-    Student[36].ID = "24-59343-3";
+    Student[36].ID = "24-59344-3";
     Student[36].Department = "CSE";
 
     Student[37].name = "KAMAL, TASMIA";
@@ -198,7 +198,6 @@ void info()
     Student[40].ID = "24-60482-3";
     Student[40].Department = "CSE";
 }
-
 void showData()
 {
     for (int i = 0; i < 41; i++)
@@ -211,8 +210,65 @@ void showData()
              << Student[i].Department << endl;
     }
 }
+void start()
+{
+    string input;
+    cout << "======================================" << endl;
+    cout << "   Welcome to the B7 Section Info App " << endl;
+    cout << "======================================" << endl;
+    cout << "\nWhat would you like to do?" << endl;
+    cout << "1. To view information of all students (type 'all')" << endl;
+    cout << "2. To view information of an individual student (type 'in')" << endl;
+    cout << "--------------------------------------" << endl;
+    cout << "Enter your choice: ";
+    cin >> input;
+
+    if (input == "all")
+    {
+        cout << endl
+             << "Displaying information of all students...\n"
+             << endl;
+        showData();
+    }
+    else if (input == "in")
+    {
+        cout << endl
+             << "Enter the student's ID to search: ";
+        cin >> input;
+
+        bool found = false;
+        for (int i = 0; i < 41; i++)
+        {
+            if (input == Student[i].ID)
+            {
+                cout << endl
+                     << "======================================" << endl;
+                cout << "           Student Information        " << endl;
+                cout << "======================================" << endl;
+                cout << "Roll        : " << i + 1 << endl;
+                cout << "Name        : " << Student[i].name << endl;
+                cout << "ID          : " << Student[i].ID << endl;
+                cout << "Department  : " << Student[i].Department << endl;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            cout << endl
+                 << "No student found with ID: " << input << endl;
+        }
+    }
+    else
+    {
+        cout << "Invalid input! Please type 'all' or 'in' to proceed." << endl;
+    }
+}
+
 int main()
 {
     info();
-    showData();
+    start();
+    // showData();
 }
